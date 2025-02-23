@@ -2,7 +2,7 @@ from turtle import color
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('linear_regression_data.csv')
+data = pd.read_csv('LinearRegression/linear_regression_data.csv')
 
 def loss_func(m, b, points):
     total_error = 0
