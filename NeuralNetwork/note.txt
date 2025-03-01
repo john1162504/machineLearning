@@ -1,0 +1,49 @@
+Link to artical : https://medium.com/@waadlingaadil/learn-to-build-a-neural-network-from-scratch-yes-really-cac4ca457efc
+
+
+What is machine learning ?
+    machines learn from data. The more data a machine has, the more its "worldview" and knowledge  expands
+
+    Machine learinging consists of these steps:
+        1. Gather correctly labeled data for the machine to train on 
+        2. Creat a metric to describe how much error the machine makes when trying to predict what something is 
+        3. Iterratively train to reduce that error 
+    
+    Punish the machine by pointing out it's mistkae and tell it how wrong it is by giving it a cost
+
+    Cost = number of errors / number of total predictions 
+
+Gradient descent is the heart of machine learning, Use partial derivative to find gradient descent 
+
+Nerual network have these 4 components to them: nodes, weightm biases, and cost (Algorithms content like A*, DFS, BFS could be handy in the future)
+Cost function indludes all those weights and biases, we minimise the cost by tweaking those weight and biases.
+Inputs are raw data we cant change/adjust.
+
+Steps of running a neraul netowrk 
+1. Provide input data to the network as a inout layer, then network uses that values from the input layer and weights connecting it to the scond layer to computer values for the second layer
+2. Propagates first step through all layers of the network, until each node in the network has a value (Step 1,2 build the network)
+3. Last layer will output the netowrk predictions whcih we then compare to our labeled data to provide a cost metric for the network
+4. Based on the cost, calculate the gradient with respoect to cost and update weights and biases accordingly
+5. Repeat step1-4 til cost is minimised as much as possible. 
+
+Rules of nerual network should be keep in mind:
+1. A node in a layer is connected to every single node in the next layer through weights
+2. Weights are randomly generaterd initially, then updated bas on the cost function
+3. Every node in the network (except nodes in first layer) have a bias. Bias is added to the node after the weight node multiplcation. The initial values for the biases dont matter just assign the randomly
+
+Notations
+L is the toal amount of layer in the network (Exclude input layer)
+number of nodes is represented as n^[l] where l is the later number
+Weights is represented as a matrix notated as W. Similar to nodes in a layer weight is represented like W^[l] and has dimentions of n^[l] * n^[l-1]
+Bias matrix b^[l] has dimentuons of n^[l] * 1
+
+To get the values for the nodes in the next layer, we need t o matrix multiply the weight matrix by the node values from the previous layer then add the bias vlaues to the result
+Then we passes those values the activation dunctions to convert them into something the networks can deal with.
+In this case we used sigmoid function. Because it resemble some features of a neuron: either on or off but also have a small transition window thats lind of hlaf on and hlaf off
+
+sigmoid function : 1 / (1+e^(-z))
+
+ 
+For cost function chose a convex cost function (function that have a global minmum) to avoid stuck in a local minimum 
+
+###Compeback to section 10
