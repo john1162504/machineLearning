@@ -9,13 +9,13 @@ What is machine learning ?
         2. Creat a metric to describe how much error the machine makes when trying to predict what something is 
         3. Iterratively train to reduce that error 
     
-    Punish the machine by pointing out it's mistkae and tell it how wrong it is by giving it a cost
+    Punish the machine by pointing out it's mistake and tell it how wrong it is by giving it a cost
 
     Cost = number of errors / number of total predictions 
 
 Gradient descent is the heart of machine learning, Use partial derivative to find gradient descent 
 
-Nerual network have these 4 components to them: nodes, weightm biases, and cost (Algorithms content like A*, DFS, BFS could be handy in the future)
+Nerual network have these 4 components to them: nodes, weight, biases, and cost
 Cost function indludes all those weights and biases, we minimise the cost by tweaking those weight and biases.
 Inputs are raw data we cant change/adjust.
 
@@ -26,23 +26,42 @@ Steps of running a neraul netowrk
 4. Based on the cost, calculate the gradient with respoect to cost and update weights and biases accordingly
 5. Repeat step1-4 til cost is minimised as much as possible. 
 
-Rules of nerual network should be keep in mind:
+**Rules of nerual network should be keep in mind:**
 1. A node in a layer is connected to every single node in the next layer through weights
 2. Weights are randomly generaterd initially, then updated bas on the cost function
 3. Every node in the network (except nodes in first layer) have a bias. Bias is added to the node after the weight node multiplcation. The initial values for the biases dont matter just assign the randomly
 
-Notations
+**Notations**
 L is the toal amount of layer in the network (Exclude input layer)
 number of nodes is represented as n^[l] where l is the later number
 Weights is represented as a matrix notated as W. Similar to nodes in a layer weight is represented like W^[l] and has dimentions of n^[l] * n^[l-1]
 Bias matrix b^[l] has dimentuons of n^[l] * 1
 
-To get the values for the nodes in the next layer, we need t o matrix multiply the weight matrix by the node values from the previous layer then add the bias vlaues to the result
-Then we passes those values the activation dunctions to convert them into something the networks can deal with.
-In this case we used sigmoid function. Because it resemble some features of a neuron: either on or off but also have a small transition window thats lind of hlaf on and hlaf off
+**Feed Forward**
+To get the values for the nodes in the next layer, we need to matrix multiply the weight matrix by the node values from the previous layer then add the bias values to the result
 
+Then we passes those values the activation functions to convert them into something the networks can deal with.
+
+Two important attributes of activation function:
+1. Must be nonLinear, as it can not be in the form f(x) = my + b
+2. Must compress the input to predetermined range, like 0 to 1
+
+In this case we used sigmoid function. Because it resemble some features of a neuron: either on or off but also have a small transition window thats lind of half on and half off
 sigmoid function : 1 / (1+e^(-z))
 
+Feed forward conclusion:
+1. calculate cost of nodes in next layer by matrix multipying weight matrix by the node value from the previose layer then add the bias values 
+2. From above step we get the pre-activate values, then we pass the pre-activate value into a activation function to squish down the number to something the ANN can works with.
+
+Mathmetical representation of feed forward:
+z^[i] = W[^[i]] * a^[i-1] + b^[i]
+a^[i] = g(z^[i])
+Where:
+z is the pre-activate value matrix
+W is the weight matrix
+b is the bias
+g() is the activation function
+a is the activate values 
  
 For cost function chose a convex cost function (function that have a global minmum) to avoid stuck in a local minimum 
 
